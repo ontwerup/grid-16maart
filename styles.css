@@ -1,16 +1,35 @@
+/*Dit is dan voor alles kleiner dan 576px, dus voor mobiel*/
 .grid-container {
     background-color: #EAF2D7;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 50px 190px 100px auto 50px;
     row-gap: 4px;
     column-gap: 4px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 50px auto 50px 50px 50px 50px 50px;
     grid-template-areas:
+            "a-logo"
+            "b-main"
+            "c-header"
+            "d-aside"
+            "e-article"
+            "."
+            "f-footer";
+}
+
+/*Alles wat hier staat is groter dan mobiel*/
+/*Dus desktop en tablets*/
+@media screen and (min-width: 576px) {
+    .grid-container {
+        /*hier schrijven we alleen de properties die moeten veranderen*/
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 50px 190px 100px auto 50px;
+        grid-template-areas:
             "a-logo c-header c-header"
             "b-main c-header c-header"
             "b-main e-article d-aside"
             "b-main e-article ."
             "f-footer f-footer f-footer";
+    }
 }
 
 .grid-item {
